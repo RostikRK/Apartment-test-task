@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#root {
+    display: flex;
+    justify-content: center;
+}
+
+.App {
+    width: 100%;
+}
+
+.FilterApart {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    margin-top: 65px;
+}
+
+.Header {
+    height: 65px;
+  
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+  
+    background-color: white;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(228, 228, 228);
+}
+
+.estate-logo {
+    height: 30px;
+    margin-right: 0.2rem;
+}
+
+.left-section {
+    display: flex;
+    align-items: center;
+    margin-left: 0.7em;
+}
+
+.right-section {
+    display: flex;
+    align-items: center;
+    margin-right: 0.5em;
+}
+
+.categories-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 1rem;
+    row-gap: 2rem;
+    margin: 0.8rem;
+}
+
+.apartmentCardBottom {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card {
+    border-radius: 8px;
+}
+
+@media (max-width: 800px) {
+    .categories-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+}
+  
+@media (min-width: 801px) and (max-width: 1099px) {
+    .categories-grid {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+  
+@media (min-width: 1100px) {
+    .categories-grid {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}

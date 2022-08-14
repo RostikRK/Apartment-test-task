@@ -1,0 +1,7 @@
+.editButton {
+    background-color: transparent;
+    border-color: transparent;
+    position: absolute;
+    top: 0.6rem;
+    right: 3.4rem;
+}
