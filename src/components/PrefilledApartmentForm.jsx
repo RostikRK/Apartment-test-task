@@ -5,24 +5,18 @@ import ApartmentService from "../API/ApartmentService";
 
 
 
-const ApartmentForm = ({setModal, fetcher}) => {
+const PrefilledApartmentForm = ({setModal, fetcher, filler}) => {
     const [apartment, setApartment] = useState({
-        rooms: "",
-        name: "",
-        price: "",
-        description: "",
+        rooms: filler.rooms,
+        name: filler.name,
+        price: filler.price,
+        description: filler.description,
     })
 
-    const addNewPost = (e) => {
+    const updatePost = (e) => {
         e.preventDefault()
-        ApartmentService.addNewApartment(apartment, fetcher)
+        ApartmentService.updateApartment(apartment, fetcher, filler._id)
         setModal(false)
-        setApartment({
-            rooms: "",
-            name: "",
-            price: "",
-            description: "",
-        })
     }
     
     return (
@@ -54,9 +48,9 @@ const ApartmentForm = ({setModal, fetcher}) => {
                 min="1"
                 placeholder="Price"
             />
-            <BlackButton onClick={addNewPost}>Create post</BlackButton>
+            <BlackButton onClick={updatePost}>Save changes</BlackButton>
         </form>
     );
 };
 
-export default ApartmentForm;
+export default PrefilledApartmentForm;

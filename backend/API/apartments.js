@@ -25,12 +25,11 @@ router.route('/:id').get((req, res) => {
 });
 
 router.route('/').post((req, res) => {
+    Validate(req.body)
     const rooms = Number(req.body.rooms);
     const name = req.body.name;
     const price = Number(req.body.price);
     const description = req.body.description;
-    if(price < 0) throw "Price should be positive";
-    if(price < 0) throw "Number of rooms should be positive";
 
     const newApartment = new Apartment({
         rooms,
@@ -45,6 +44,7 @@ router.route('/').post((req, res) => {
 });
 
 router.route('/:id').put((req, res) => {
+    Validate(req.body)
     const filter = { _id: req.params.id}
     const update = {
         rooms: Number(req.body.rooms),
@@ -63,5 +63,32 @@ router.route('/:id').delete((req, res) => {
         .then(() => res.json('Apartment deleted'))
         .catch(err => res.status(400).json('Error: ' + err));
 });
+
+function Validate(apartment) {
+    if(apartment.name === undefined) {
+        throw "Name should be provided"
+    }
+    if(apartment.description === undefined) {
+        throw "Description should be provided"
+    }
+    if(apartment.price === undefined) {
+        throw "Price should be provided"
+    }
+    if(apartment.rooms === undefined) {
+        throw "Number of rooms should be provided"
+    }
+    if(apartment.name.length > 98) {
+        throw "The length of name should be less than 99"
+    }
+    if(apartment.description.length > 998) {
+        throw "The length of description should be less than 999"
+    }
+    if(apartment.price < 1) {
+        throw "The price should be more than 0"
+    }
+    if (apartment.rooms < 1) {
+        throw "The number of rooms should be more than 0"
+    }
+}
 
 module.exports = router;

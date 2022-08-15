@@ -3,7 +3,8 @@ import noImage from "./images/no-image.png";
 import DeleteButton from "./UI/button/DeleteButton";
 import EditButton from "./UI/button/EditButton";
 import AddingModal from "./UI/modal/AddingModal";
-import ApartmentForm from "./ApartmentForm";
+import PrefilledApartmentForm from "./PrefilledApartmentForm";
+import DeleteBlock from "./DeleteBlock";
 
 
 const ApartmentCard = (props) => {
@@ -11,14 +12,22 @@ const ApartmentCard = (props) => {
     const [editModal, setEditModal] = useState(false)
     return (
         <div className="card">
-            <img className="card-img-top" src={noImage} alt="Card image cap"/>
+            <img className="card-img-top" src={noImage} alt=""/>
             <DeleteButton onClick={() => setDeleteModal(true)}/>
             <AddingModal visible={deleteModal} setVisible={setDeleteModal}>
-                <ApartmentForm setModal={setDeleteModal} fetcher={props.fetcher}/>
+                <DeleteBlock 
+                    setModal={setDeleteModal} 
+                    fetcher={props.fetcher} 
+                    id={props.apartment._id} 
+                />
             </AddingModal>
             <EditButton onClick={() => setEditModal(true)}/>
             <AddingModal visible={editModal} setVisible={setEditModal}>
-                <ApartmentForm setModal={setEditModal} fetcher={props.fetcher}/>
+                <PrefilledApartmentForm 
+                    setModal={setEditModal} 
+                    fetcher={props.fetcher} 
+                    filler={props.apartment}
+                />
             </AddingModal>
             <div className="card-body">
                 <h5 className="card-title">{props.apartment.name}</h5>

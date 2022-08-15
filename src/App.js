@@ -13,7 +13,7 @@ function App() {
   async function fetchApartmentsQuery() {
     const apartments_ = await ApartmentService.getAll(filter.sort, filter.query);
     setApartments(apartments_)
-}
+  }
 
 
   useEffect(() => {
@@ -24,7 +24,7 @@ function App() {
     <div className="App">
       <Header fetcher={fetchApartmentsQuery}/>
       <ApartmentFilter filter={filter} setFilter={setFilter}/>
-      <ApartmentsList apartments={apartments}/>
+      <ApartmentsList apartments={apartments} fetcher={fetchApartmentsQuery}/>
     </div>
   );
 }
