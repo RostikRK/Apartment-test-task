@@ -10,9 +10,11 @@ import DeleteBlock from "./DeleteBlock";
 const ApartmentCard = (props) => {
     const [deleteModal, setDeleteModal] = useState(false)
     const [editModal, setEditModal] = useState(false)
+
     return (
         <div className="card">
             <img className="card-img-top" src={noImage} alt=""/>
+            {/* On click opens a modal window to delete*/}
             <DeleteButton onClick={() => setDeleteModal(true)}/>
             <AddingModal visible={deleteModal} setVisible={setDeleteModal}>
                 <DeleteBlock 
@@ -21,6 +23,7 @@ const ApartmentCard = (props) => {
                     id={props.apartment._id} 
                 />
             </AddingModal>
+            {/* On click opens a modal window to edit*/}
             <EditButton onClick={() => setEditModal(true)}/>
             <AddingModal visible={editModal} setVisible={setEditModal}>
                 <PrefilledApartmentForm 

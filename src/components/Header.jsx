@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import BlackButton from "./UI/button/BlackButton";
-import logo from './images/logo.jpg'
+import logo from './images/house.png'
 import AddingModal from "./UI/modal/AddingModal";
 import ApartmentForm from "./ApartmentForm";
 
@@ -14,6 +14,7 @@ function Header({fetcher}) {
                 <h1>Apartment marketplace</h1>
             </div>
             <div className="right-section">
+                {/* On click opens a modal window*/}
                 <BlackButton onClick={() => setAddModal(true)}>
                     Add apartments
                 </BlackButton>

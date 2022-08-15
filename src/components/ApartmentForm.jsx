@@ -13,16 +13,17 @@ const ApartmentForm = ({setModal, fetcher}) => {
         description: "",
     })
 
+
     const addNewPost = (e) => {
-        e.preventDefault()
+        e.preventDefault() //prevent the autosubmition of form
         ApartmentService.addNewApartment(apartment, fetcher)
-        setModal(false)
+        setModal(false) //closes modal
         setApartment({
             rooms: "",
             name: "",
             price: "",
             description: "",
-        })
+        }) //clears form
     }
     
     return (

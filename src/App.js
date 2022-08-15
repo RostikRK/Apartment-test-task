@@ -9,13 +9,13 @@ function App() {
   const [apartments, setApartments] = useState([])
   const [filter, setFilter] = useState({sort: "", query: ""})
 
-
+  // main fatching function
   async function fetchApartmentsQuery() {
     const apartments_ = await ApartmentService.getAll(filter.sort, filter.query);
     setApartments(apartments_)
   }
 
-
+  // calls the function on mount and update of filter
   useEffect(() => {
     fetchApartmentsQuery()
   }, [filter])

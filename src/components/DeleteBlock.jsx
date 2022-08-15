@@ -4,9 +4,8 @@ import ApartmentService from "../API/ApartmentService";
 
 const DeleteBlock = ({setModal, fetcher, id}) => {
     const deletePost = (e) => {
-        e.preventDefault()
         ApartmentService.deleteApartment(id, fetcher)
-        setModal(false)
+        setModal(false) // close modal
     }
 
     return (

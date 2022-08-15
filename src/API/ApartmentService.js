@@ -1,6 +1,7 @@
 import axios from "axios"
 
 export default class ApartmentService {
+
     static async getAll(price, rooms) {
         try {
             const response = await axios.get("http://localhost:8000/apartments", {
@@ -14,6 +15,7 @@ export default class ApartmentService {
             console.log(e);
         }
     }
+    
     static async addNewApartment(apartment, fetcher) {
         try {
             const response = await axios.post("http://localhost:8000/apartments", apartment)
@@ -30,7 +32,7 @@ export default class ApartmentService {
             fetcher()
             console.log(response.data)
         } catch(e) {
-            console.log(e)
+            console.log(e);
         }
     }
 
@@ -40,7 +42,7 @@ export default class ApartmentService {
             fetcher()
             console.log(response.data)
         } catch(e) {
-            console.log(e)
+            console.log(e);
         }
     }
 }

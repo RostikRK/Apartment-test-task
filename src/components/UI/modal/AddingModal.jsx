@@ -5,6 +5,7 @@ const AddingModal = ({children, visible, setVisible}) => {
 
     const rootClasses = [cl.AddingModal]
 
+    // if we set visible we add an active class to it
     if (visible) {
         rootClasses.push(cl.active);
     }

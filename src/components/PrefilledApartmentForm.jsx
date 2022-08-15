@@ -11,12 +11,12 @@ const PrefilledApartmentForm = ({setModal, fetcher, filler}) => {
         name: filler.name,
         price: filler.price,
         description: filler.description,
-    })
+    }) //prefiling the form
 
     const updatePost = (e) => {
-        e.preventDefault()
+        e.preventDefault() // prevent the autosubmition of form
         ApartmentService.updateApartment(apartment, fetcher, filler._id)
-        setModal(false)
+        setModal(false) //close the modal
     }
     
     return (
